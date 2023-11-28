@@ -36,6 +36,12 @@ float get_average(float* liste, int N) {
 }
 
 float simulation_Monte_Carlo(float r, float vol, float K, float S, int T, int N) {
+    
+    /*
+    A part le fait qu'il ne multiplie pas par S le prix dans simulate_paths,
+    Ce site m'a l'air bon
+    https://towardsdatascience.com/monte-carlo-pricing-in-python-eafc29e3b6c9
+    */
     float liste[N];
     float* p=liste;
     const float zero = 0;
@@ -58,6 +64,9 @@ int main(){
     int T = 10; // Maturité
     int N = 100000;
 
-    
+    /*
+    J'ai fait des tests sur ce site
+    http://www.finance-calculators.com/mclookbackoption/
+    */
     cout << simulation_Monte_Carlo(r, vol, K, S, T, N) << "\n";
 }
