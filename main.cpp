@@ -63,7 +63,6 @@ int main(){
     float S = 40; // Valeur actuelle
     int T = 10; // Maturité
     int N = 100000;
-
     /*
     J'ai fait des tests sur ce site
     http://www.finance-calculators.com/mclookbackoption/
