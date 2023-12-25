@@ -4,10 +4,17 @@
 
 #ifndef PRICER_BLACKSCHOLES_H
 #define PRICER_BLACKSCHOLES_H
+#include "Stock.h"
 
-
-class BlackScholes {
-
+class BlackScholes : protected Stock{
+public:
+    BlackScholes(float vol, float S, float K, float r, int T);
+    double calculate();
+protected:
+    float K;
+    float r;
+    int T;
+    double standard_normal_cdf(double x);
 };
 
 
