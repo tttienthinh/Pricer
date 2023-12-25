@@ -1,10 +1,4 @@
-#include <iostream> // cout
-#include <string.h>
-#include <cstring>
-#include <random>
-#include <typeinfo> // typeid().name
-#include <algorithm> // max
-#include "Stock.h"
+#include <iostream>
 #include "MonteCarlo.h"
 #include "BlackScholes.h"
 using namespace std;
@@ -22,6 +16,6 @@ int main(){
     */
     MonteCarlo MC = MonteCarlo(vol, S, r, K, T, N);
     BlackScholes BS = BlackScholes(vol, S, K, r, T);
-    cout << "Prix (Monte Carlo) " << MC.simulation() << "\n";
-    cout << "Prix (Black, Scholes et Merton) " << BS.calculate();
+    cout << "Prix (Monte Carlo): " << MC.simulation() << "\n";
+    cout << "Prix (Black, Scholes et Merton): " << BS.calculate();
 }
