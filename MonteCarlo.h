@@ -11,13 +11,13 @@
 class MonteCarlo: protected Stock {
 public:
     MonteCarlo(float vol, float S, float r, float K, int T, int N);
-    float get_average(float* list, int N);
     float simulation();
 protected:
-    float r; /* Interest rate of the option */
-    float K; /* Strike of option */
-    int T; /* Maturity of the option in year */
-    int N; /* Number of simulations */
+    float get_average(float* list, int N);
+    float r; // Interest rate of the option
+    float K; // Strike of option
+    int T; // Maturity of the option in year
+    int N; // Number of simulations
 };
 
 

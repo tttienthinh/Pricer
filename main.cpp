@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
     float r = 0.02; // taux d'intérêt sans risque
-    float vol = 0.5; // volatilité du prix de l'action
+    float vol = 0.05; // volatilité du prix de l'action
     float K = 50; // Strike
     float S = 40; // Valeur actuelle
     int T = 10; // Maturité
