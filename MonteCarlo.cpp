@@ -17,7 +17,7 @@ MonteCarlo::MonteCarlo(float vol, float S, float r, float K, int T, int N) : Sto
 float MonteCarlo::get_average(float *list, int N) {
     float avg = 0;
     for (int i=0; i<N; i++) {
-        avg = avg + *(list+i)/N;
+        avg = avg + *(list+i) / N;
     }
     return avg;
 }
