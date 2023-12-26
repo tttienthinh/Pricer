@@ -14,8 +14,8 @@ int main(){
     J'ai fait des tests sur ce site
     http://www.finance-calculators.com/mclookbackoption/
     */
-    MonteCarlo MC = MonteCarlo(vol, S, r, K, T, N);
-    BlackScholes BS = BlackScholes(vol, S, K, r, T);
-    cout << "Prix (Monte Carlo): " << MC.simulation() << "\n";
-    cout << "Prix (Black, Scholes et Merton): " << BS.calculate();
+    MonteCarlo my_monte_carlo = MonteCarlo(vol, S, r, K, T, N);
+    BlackScholes my_black_scholes = BlackScholes(vol, S, K, r, T);
+    cout << "Prix (Monte Carlo): " << my_monte_carlo.simulation() << "\n";
+    cout << "Prix (Black, Scholes et Merton): " << my_black_scholes.calculate();
 }
