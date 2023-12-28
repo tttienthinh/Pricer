@@ -1,20 +1,19 @@
 #include "BlackScholes.h"
 #include <cmath>
 
-BlackScholes::BlackScholes(double vol, double S, double K, double r, double T, bool is_call) {
+BlackScholes::BlackScholes(double vol, double S, double K, double r, double T) {
     this->vol = vol;
     this->S = S;
     this->r = r;
     this->K = K;
     this->T = T;
-    this->is_call = is_call;
 }
 
 double BlackScholes::standard_normal_cdf(double x) {
     return 0.5 *  erfc(-x / sqrt(2.0));
 }
 
-double BlackScholes::calculate() {
+double BlackScholes::calculate(bool is_call) {
     double d1 = (log(S / K) + (r + vol * vol / 2) * T) / (vol * sqrt(T));
     double d2 = d1 - vol * sqrt(T);
     if (is_call){

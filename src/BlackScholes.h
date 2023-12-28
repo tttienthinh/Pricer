@@ -3,8 +3,8 @@
 
 class BlackScholes {
 public:
-    BlackScholes(double vol, double S, double K, double r, double T, bool is_call);
-    double calculate();
+    BlackScholes(double vol, double S, double K, double r, double T);
+    double calculate(bool is_call);
 protected:
     double vol; // Volatility of the option
     double S; // Spot price of the option

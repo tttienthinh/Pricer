@@ -4,8 +4,9 @@
 
 class MonteCarlo {
 public:
-    MonteCarlo(double vol, double S, double r, double K, double T, int N, bool is_call);
-    double simulation();
+    MonteCarlo(double vol, double S, double r, double K, double T, int N);
+    double calculate(bool is_call);
+    vector<vector<double>> simulation(int nb_delta_T = 100);
 protected:
     double vol; // Volatility of the option
     double S; // Spot price of the option
@@ -13,7 +14,6 @@ protected:
     double K; // Strike of option
     double T; // Maturity of the option in year
     int N; // Number of simulations
-    bool is_call;
 };
 
 
