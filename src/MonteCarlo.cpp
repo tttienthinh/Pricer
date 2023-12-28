@@ -17,21 +17,21 @@ MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N
 double MonteCarlo::simulation() {
     random_device rd;
     mt19937 gen(rd());
-    normal_distribution<> d((r - 0.5 * vol * vol) * T, vol * std::sqrt(T));
+    normal_distribution<> d((r - 0.5 * vol * vol) * T, vol * sqrt(T)); // Permet de générer des nombres aléatoires suivant une loi normale
 
     double sum_payoffs = 0.0;
-    for (int i = 0; i < N; ++i) {
-        double price_path = S * std::exp(d(gen));
+    for (int i = 0; i < N; ++i) { // On fait N simulations
+        double price_path = S * exp(d(gen));
         double payoff;
-        if (is_call){
-            payoff = std::max(price_path - K, 0.0);
+        if (is_call){   // On calcule le payoff du call
+            payoff = max(price_path - K, 0.0);
         }
-        else{
-            payoff = std::max(K - price_path, 0.0);
+        else{           // On calcule le payoff du put
+            payoff = max(K - price_path, 0.0);
         }
         sum_payoffs += payoff;
     }
 
-    double option_price = std::exp(-r * T) * (sum_payoffs / N);
+    double option_price = exp(-r * T) * (sum_payoffs / N); // On calcule la moyenne des payoffs actualisés
     return option_price;
 }

@@ -7,4 +7,4 @@ include_directories(.)
 
 add_executable(Pricer
         main.cpp
-        Stock.cpp MonteCarlo.cpp BlackScholes.cpp)
+        src/MonteCarlo.cpp src/BlackScholes.cpp)
