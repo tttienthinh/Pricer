@@ -6,13 +6,14 @@
 
 class MonteCarlo: protected Stock {
 public:
-    MonteCarlo(double vol, double S, double r, double K, double T, int N);
+    MonteCarlo(double vol, double S, double r, double K, double T, int N, bool is_call);
     double simulation();
 protected:
     double r; // Interest rate of the option
     double K; // Strike of option
     double T; // Maturity of the option in year
     int N; // Number of simulations
+    bool is_call;
 };
 
 

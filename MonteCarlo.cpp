@@ -4,11 +4,12 @@
 
 using namespace std;
 
-MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N) : Stock(vol, S) {
+MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N, bool is_call) : Stock(vol, S) {
     this -> r = r;
     this -> K = K;
     this -> T = T;
     this -> N = N;
+    this -> is_call = is_call;
 }
 
 
@@ -25,7 +26,13 @@ https://towardsdatascience.com/monte-carlo-pricing-in-python-eafc29e3b6c9
     double sum_payoffs = 0.0;
     for (int i = 0; i < N; ++i) {
         double price_path = S * std::exp(d(gen));
-        double payoff = std::max(price_path - K, 0.0);
+        double payoff;
+        if (is_call){
+            payoff = std::max(price_path - K, 0.0);
+        }
+        else{
+            payoff = std::max(K - price_path, 0.0);
+        }
         sum_payoffs += payoff;
     }
 

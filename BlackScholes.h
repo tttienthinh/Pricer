@@ -4,13 +4,14 @@
 
 class BlackScholes : protected Stock{
 public:
-    BlackScholes(double vol, double S, double K, double r, double T);
+    BlackScholes(double vol, double S, double K, double r, double T, bool is_call);
     double calculate();
 protected:
     double K;
     double r;
     double T;
     double standard_normal_cdf(double x);
+    bool is_call;
 };
 
 
