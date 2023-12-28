@@ -18,4 +18,5 @@ int main(){
     BlackScholes my_black_scholes = BlackScholes(vol, S, K, r, T);
     cout << "Prix (Monte Carlo): " << my_monte_carlo.simulation() << "\n";
     cout << "Prix (Black, Scholes et Merton): " << my_black_scholes.calculate() << "\n";
+    cout << "Différence: " << my_monte_carlo.simulation() - my_black_scholes.calculate() << "\n";
 }

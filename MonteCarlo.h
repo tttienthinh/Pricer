@@ -4,11 +4,13 @@
 #include "Stock.h"
 
 
-class MonteCarlo: protected Stock {
+class MonteCarlo {
 public:
     MonteCarlo(double vol, double S, double r, double K, double T, int N);
     double simulation();
 protected:
+    double vol; // Volatility of the option
+    double S; // Spot price of the option
     double r; // Interest rate of the option
     double K; // Strike of option
     double T; // Maturity of the option in year

@@ -4,7 +4,9 @@
 
 using namespace std;
 
-MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N) : Stock(vol, S) {
+MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N) {
+    this -> vol = vol;
+    this -> S = S;
     this -> r = r;
     this -> K = K;
     this -> T = T;
