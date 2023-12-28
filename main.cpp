@@ -1,6 +1,6 @@
 #include <iostream>
-#include "MonteCarlo.h"
-#include "BlackScholes.h"
+#include "src/MonteCarlo.h"
+#include "src/BlackScholes.h"
 using namespace std;
 
 int main(){
@@ -17,4 +17,5 @@ int main(){
     cout << "Prix (Monte Carlo): " << my_monte_carlo.simulation() << "\n";
     cout << "Prix (Black, Scholes et Merton): " << my_black_scholes.calculate() << "\n";
     cout << "Différence: " << my_monte_carlo.simulation() - my_black_scholes.calculate() << "\n";
+    cout << "Pourcentage: " << (my_monte_carlo.simulation() - my_black_scholes.calculate()) / my_black_scholes.calculate() * 100 << "%\n";
 }

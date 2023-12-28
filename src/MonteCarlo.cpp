@@ -15,14 +15,9 @@ MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N
 }
 
 double MonteCarlo::simulation() {
-    /*
-A part le fait qu'il ne multiplie pas par S le prix dans simulate_paths,
-Ce site m'a l'air bon
-https://towardsdatascience.com/monte-carlo-pricing-in-python-eafc29e3b6c9
-*/
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::normal_distribution<> d((r - 0.5 * vol * vol) * T, vol * std::sqrt(T));
+    random_device rd;
+    mt19937 gen(rd());
+    normal_distribution<> d((r - 0.5 * vol * vol) * T, vol * std::sqrt(T));
 
     double sum_payoffs = 0.0;
     for (int i = 0; i < N; ++i) {

@@ -1,2 +1,2 @@
 default:
-	g++ -o main.exe main.cpp MonteCarlo.cpp BlackScholes.cpp
+	g++ -o main.exe main.cpp src/MonteCarlo.cpp src/BlackScholes.cpp
