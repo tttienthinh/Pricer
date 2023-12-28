@@ -4,16 +4,15 @@
 
 using namespace std;
 
-MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N) {
-    this -> vol = vol;
-    this -> S = S;
-    this -> r = r;
-    this -> K = K;
-    this -> T = T;
-    this -> N = N;
-    this -> is_call = is_call;
+MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N, bool is_call) {
+    this->vol = vol;
+    this->S = S;
+    this->r = r;
+    this->K = K;
+    this->T = T;
+    this->N = N;
+    this->is_call = is_call;
 }
-
 
 double MonteCarlo::simulation() {
     /*

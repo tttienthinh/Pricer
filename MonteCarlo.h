@@ -1,8 +1,6 @@
 #ifndef PRICER_MONTECARLO_H
 #define PRICER_MONTECARLO_H
 
-#include "Stock.h"
-
 
 class MonteCarlo {
 public:

@@ -1,13 +1,13 @@
 #include "BlackScholes.h"
 #include <cmath>
 
-BlackScholes::BlackScholes(double vol, double S, double K, double r, double T) {
-    this -> vol = vol;
-    this -> S = S;
-    this -> K = K;
-    this -> r = r;
-    this -> T = T;
-    this -> is_call = is_call;
+BlackScholes::BlackScholes(double vol, double S, double K, double r, double T, bool is_call) {
+    this->vol = vol;
+    this->S = S;
+    this->r = r;
+    this->K = K;
+    this->T = T;
+    this->is_call = is_call;
 }
 
 double BlackScholes::standard_normal_cdf(double x) {

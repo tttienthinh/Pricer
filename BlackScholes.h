@@ -1,6 +1,5 @@
 #ifndef PRICER_BLACKSCHOLES_H
 #define PRICER_BLACKSCHOLES_H
-#include "Stock.h"
 
 class BlackScholes {
 public:
