@@ -1,6 +1,3 @@
-//
-// Created by Jacques Zhang on 24/12/2023.
-//
 #include <random>
 #include "Stock.h"
 using namespace std;

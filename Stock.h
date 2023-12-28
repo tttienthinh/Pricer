@@ -1,7 +1,3 @@
-//
-// Created by Jacques Zhang on 25/12/2023.
-//
-
 #ifndef PRICER_STOCK_H
 #define PRICER_STOCK_H
 
