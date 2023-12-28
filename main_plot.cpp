@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "src/MonteCarlo.h"
-#include "src/BlackScholes.h"
 using namespace std;
 
 int main(){
