@@ -7,6 +7,7 @@ BlackScholes::BlackScholes(double vol, double S, double K, double r, double T) {
     this -> K = K;
     this -> r = r;
     this -> T = T;
+    this -> is_call = is_call;
 }
 
 double BlackScholes::standard_normal_cdf(double x) {
@@ -16,6 +17,12 @@ double BlackScholes::standard_normal_cdf(double x) {
 double BlackScholes::calculate() {
     double d1 = (log(S / K) + (r + vol * vol / 2) * T) / (vol * sqrt(T));
     double d2 = d1 - vol * sqrt(T);
-    return S * standard_normal_cdf(d1) - K * exp(-r * T) * standard_normal_cdf(d2);
+    if (is_call){
+        return S * standard_normal_cdf(d1) - K * exp(-r * T) * standard_normal_cdf(d2);
+    }
+    else{
+        return S * (standard_normal_cdf(d1) - 1) - K * exp(-r * T) * (standard_normal_cdf(d2) - 1);
+    }
+
 }
 

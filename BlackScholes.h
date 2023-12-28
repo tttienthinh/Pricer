@@ -4,7 +4,7 @@
 
 class BlackScholes {
 public:
-    BlackScholes(double vol, double S, double K, double r, double T);
+    BlackScholes(double vol, double S, double K, double r, double T, bool is_call);
     double calculate();
 protected:
     double vol; // Volatility of the option
@@ -13,6 +13,7 @@ protected:
     double K; // Strike of option
     double T; // Maturity of the option in year
     double standard_normal_cdf(double x);
+    bool is_call;
 };
 
 
