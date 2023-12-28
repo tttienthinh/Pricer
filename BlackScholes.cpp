@@ -5,7 +5,7 @@
 #include "BlackScholes.h"
 #include <cmath>
 
-BlackScholes::BlackScholes(float vol, float S, float K, float r, int T) : Stock(vol, S){
+BlackScholes::BlackScholes(double vol, double S, double K, double r, double T) : Stock(vol, S){
     this -> K = K;
     this -> r = r;
     this -> T = T;

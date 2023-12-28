@@ -3,38 +3,36 @@
 //
 
 #include "MonteCarlo.h"
-#include <algorithm> // max
+#include <cmath>
+#include <random>
 
 using namespace std;
 
-MonteCarlo::MonteCarlo(float vol, float S, float r, float K, int T, int N) : Stock(vol, S) {
+MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N) : Stock(vol, S) {
     this -> r = r;
     this -> K = K;
     this -> T = T;
     this -> N = N;
 }
 
-float MonteCarlo::get_average(float *list, int N) {
-    float avg = 0;
-    for (int i=0; i<N; i++) {
-        avg = avg + *(list+i) / N;
-    }
-    return avg;
-}
 
-float MonteCarlo::simulation() {
+double MonteCarlo::simulation() {
     /*
 A part le fait qu'il ne multiplie pas par S le prix dans simulate_paths,
 Ce site m'a l'air bon
 https://towardsdatascience.com/monte-carlo-pricing-in-python-eafc29e3b6c9
 */
-    float list[N];
-    float* p = list;
-    const float zero = 0;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::normal_distribution<> d((r - 0.5 * vol * vol) * T, vol * std::sqrt(T));
 
-    for (int i=0; i<N; i++) {
-        float S_T = Get_price_at_T(r, S, T);
-        *(p+i) = max(S_T-K, zero);
+    double sum_payoffs = 0.0;
+    for (int i = 0; i < N; ++i) {
+        double price_path = S * std::exp(d(gen));
+        double payoff = std::max(price_path - K, 0.0);
+        sum_payoffs += payoff;
     }
-    return get_average(list, N);
+
+    double option_price = std::exp(-r * T) * (sum_payoffs / N);
+    return option_price;
 }

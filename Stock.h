@@ -5,19 +5,13 @@
 #ifndef PRICER_STOCK_H
 #define PRICER_STOCK_H
 
-
-
 class Stock {
 public:
-    Stock(float vol, float S);
-    float Get_price_at_T(float r, float So, int T);
-    float generate_normal_rand(float mu, float sig);
-    float get_S();
+    Stock(double vol, double S);
 
 protected:
-    float vol;
-    float S;
-
+    double vol;
+    double S;
 };
 
 #endif //PRICER_STOCK_H

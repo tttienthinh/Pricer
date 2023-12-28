@@ -8,12 +8,12 @@
 
 class BlackScholes : protected Stock{
 public:
-    BlackScholes(float vol, float S, float K, float r, int T);
+    BlackScholes(double vol, double S, double K, double r, double T);
     double calculate();
 protected:
-    float K;
-    float r;
-    int T;
+    double K;
+    double r;
+    double T;
     double standard_normal_cdf(double x);
 };
 

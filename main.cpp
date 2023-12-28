@@ -4,11 +4,11 @@
 using namespace std;
 
 int main(){
-    float r = 0.02; // taux d'intérêt sans risque
-    float vol = 0.05; // volatilité du prix de l'action
-    float K = 50; // Strike
-    float S = 40; // Valeur actuelle
-    int T = 10; // Maturité
+    float r = 0.05; // taux d'intérêt sans risque
+    float vol = 0.25; // volatilité du prix de l'action
+    float K = 110; // Strike
+    float S = 100; // Valeur actuelle
+    float T = 0.5; // Maturité
     int N = 100000; // Nombre de simulations pour le Monte Carlo
     /*
     J'ai fait des tests sur ce site
