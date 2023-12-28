@@ -41,7 +41,7 @@ Supposons que $r$ et $vol$ sont constants, alors nous pouvons obtenir à l'aide 
  $$C_{0} = S_0 N(d_1) - K\exp (-rT)N(d_2)$$
  où $d_1 = \frac{\ln(\frac{S_0}{K}) + (r + \frac{vol^2}{2})T}{vol\sqrt{T}}$ et $d_2 = d_1 - vol\sqrt{T}$
 
- et on en déduit la valeur d'un put européen à l'aide de la formule de parité call/put:
+ et on en déduit le prix d'un put européen à l'aide de la formule de parité call/put:
  $$C_0-P_0 = S_0 - K\exp{(-rT)}$$
 
 ## main.cpp
