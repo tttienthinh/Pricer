@@ -1,19 +1,17 @@
 #ifndef PRICER_MONTECARLO_H
 #define PRICER_MONTECARLO_H
-#include <vector>
 
 class MonteCarlo {
 public:
     MonteCarlo(double vol, double S, double r, double K, double T, int N);
     double calculate(bool is_call);
-    void simulation(int nb_delta_T = 100);
 protected:
-    double vol; // Volatility of the option
-    double S; // Spot price of the option
-    double r; // Interest rate of the option
-    double K; // Strike of option
-    double T; // Maturity of the option in year
-    int N; // Number of simulations
+    double vol; // Volatilité de l'option
+    double S; // Prix spot de l'option
+    double r; // Taux d'intérêt de l'option
+    double K; // Strike de l'option
+    double T; // Maturité de l'option en années
+    int N; // Nombre de simulations
 };
 
 

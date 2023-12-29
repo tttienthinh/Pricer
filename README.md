@@ -2,7 +2,7 @@
 title: Sujet "Finance"
 subtitle: Pricer
 author: Jacques ZHANG, Thomas ROUSSAUX et Tien-Thinh TRAN-THUONG
-date: Decembre 2023
+date: Décembre 2023
 geometry: margin=2cm
 ---
 
@@ -75,10 +75,14 @@ Pour gérer un projet d'une telle ampleur, nous ne pouvions pas utiliser `gcc` o
 ```
 
 ### Simulation de Monte Carlo
+Beaucoup de difficultés ont été rencontré lors de la création du plot, notamment du fait que C++ n'a pas ces fonctionnalités de façon native. Nous avons donc fait appel à des libraries externes et nous avons appris à les utiliser au sein de notre code. La partie la plus complexe est de localiser les différents fichiers sources pour la compilation:  
+ - "C:\\Program Files\\Python312\\include" : Path vers le C header source file Python.h
+ - "C:\\Users\\trant\\AppData\\Roaming\\Python\\Python312\\site-packages\\numpy\\core\\include" : Path vers la librairie numpy
+ - "C:\\Program Files\\Python312\\libs" : Path vers les libraries Python
 ```
     g++ mainplot.cpp -o mainplot src/MonteCarlo.cpp -I "C:\Program Files\Python312\include" -I "C:\users\thoma\appdata\roaming\python\python312\site-packages\numpy\core\include" -L  "C:\Program Files\Python312\libs" -lpython312
-
 ```
+
 
 ## Pour créer ce document
 ```
@@ -87,8 +91,10 @@ Pour gérer un projet d'une telle ampleur, nous ne pouvions pas utiliser `gcc` o
 
 
 # Bibliographie
+ 0. Lien github : [https://github.com/tttienthinh/Pricer](https://github.com/tttienthinh/Pricer)
  1. PDF : Projets C++ ENSAE 2023
  2. Course on C++ (3) ENSAE, Roxana Dumitrescu
  3. LEMIEUX Christiane, Monte Carlo and quasi-Monte Carlo sampling, Springer
  4. HULL J. : Options, Futures and Other Derivatives, 6th edition, PRENTICE HALL, 2005.
  5. CMake : [https://cmake.org/](https://cmake.org/)
+ 6. matplotlib-cpp : [https://github.com/Cryoris/matplotlib-cpp](https://github.com/Cryoris/matplotlib-cpp)
