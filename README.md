@@ -12,13 +12,13 @@ geometry: margin=2cm
 
 # Structure du code
 ## Réalisations
-Pour répondre à la consigne, nous avons choisi de comparer le pricing par simulation de Monte-Carlo et celui par Black-Scholes.
-Le pricing a été réalisé en fonction des variables suivante:    
+Pour répondre à la consigne, nous avons choisi de comparer le pricing par simulation de Monte-Carlo et par la formule de Black-Scholes.
+Le pricing a été réalisé en fonction des variables suivantes:    
  - S: prix du sous-jacent à l'instant initial  
- - vol: volatilité du sous-jacent en année supposé constant  
- - r: taux d'intérêt risque neutre en année supposé constant  
+ - vol: volatilité du sous-jacent en années, supposée constante  
+ - r: taux d'intérêt risque neutre en années, supposé constant  
  - K: strike de l'option  
- - T: date de maturité de l'option en année     
+ - T: date de maturité de l'option en années     
 
 Nous avons réalisé le pricing d'options vanilles européennes à l'aide de ces deux méthodes et avons comparé les résultats.  
 Voici les résultats obtenus :  
@@ -75,12 +75,15 @@ Pour gérer un projet d'une telle ampleur, nous ne pouvions pas utiliser `gcc` o
 ```
 
 ### Simulation de Monte Carlo
-Beaucoup de difficultés ont été rencontré lors de la création du plot, notamment du fait que C++ n'a pas ces fonctionnalités de façon native. Nous avons donc fait appel à des libraries externes et nous avons appris à les utiliser au sein de notre code. La partie la plus complexe est de localiser les différents fichiers sources pour la compilation:  
- - "C:\\Program Files\\Python312\\include" : Path vers le C header source file Python.h
- - "C:\\Users\\trant\\AppData\\Roaming\\Python\\Python312\\site-packages\\numpy\\core\\include" : Path vers la librairie numpy
- - "C:\\Program Files\\Python312\\libs" : Path vers les libraries Python
+Beaucoup de difficultés ont été rencontré lors de la création du plot, notamment du fait que C++ n'a pas ces fonctionnalités de façon native. Nous avons donc fait appel à des libraries externes et nous avons appris à les utiliser au sein de notre code. La partie la plus complexe est de localiser les différents fichiers sources pour la compilation:   
+ - "C:\\Program Files\\Python312\\include" : Path vers le C header source file Python.h  
+ - "C:\\Users\\trant\\AppData\\Roaming\\Python\\Python312\\site-packages\\numpy\\core\\include" : Path vers la librairie numpy  
+ - "C:\\Program Files\\Python312\\libs" : Path vers les libraries Python  
 ```
-    g++ mainplot.cpp -o mainplot src/MonteCarlo.cpp -I "C:\Program Files\Python312\include" -I "C:\users\thoma\appdata\roaming\python\python312\site-packages\numpy\core\include" -L  "C:\Program Files\Python312\libs" -lpython312
+    g++ mainplot.cpp -o mainplot src/MonteCarlo.cpp 
+    -I "C:\Program Files\Python312\include" 
+    -I "C:\users\thoma\appdata\roaming\python\python312\site-packages\numpy\core\include" 
+    -L  "C:\Program Files\Python312\libs" -lpython312
 ```
 
 
