@@ -14,6 +14,7 @@ int main(){
     float S = 15; // Valeur actuelle
     float T = 2; // Maturité
     int N = 1000; // Nombre de simulations pour le Monte Carlo
+    int nb_delta_T = 100; // Nombre de sous-intervalles pour le mouvement brownien géométrique
     MonteCarlo my_monte_carlo = MonteCarlo(vol, S, r, K, T, N);
 
     random_device rd;
