@@ -3,7 +3,9 @@
 #include <random>
 #include <iostream>
 #include <vector>
+#include "matplotlibcpp.h"
 using namespace std;
+namespace plt = matplotlibcpp;
 
 MonteCarlo::MonteCarlo(double vol, double S, double r, double K, double T, int N) {
     this->vol = vol;
@@ -35,7 +37,7 @@ double MonteCarlo::calculate(bool is_call) {    random_device rd;
     return option_price;
 }
 
-std::vector<std::vector<double>> MonteCarlo::simulation(int nb_delta_T) {
+    void MonteCarlo::simulation(int nb_delta_T) {
     random_device rd;
     mt19937 gen(rd());
     normal_distribution<> d((r - 0.5 * vol * vol) * T/nb_delta_T, vol * sqrt(T/nb_delta_T)); // Permet de générer des nombres aléatoires suivant une loi normale
@@ -44,11 +46,18 @@ std::vector<std::vector<double>> MonteCarlo::simulation(int nb_delta_T) {
     double sum_payoffs = 0.0;
     for (int i = 0; i < N; ++i) { // On fait N simulations
         double price_path = S;
+        std::vector<double> prices(nb_delta_T+1);
+        prices[0] = price_path;
+
 
         for (int j = 0; j < nb_delta_T; ++j) { // On divise l'intervalle [0, T] en nb_delta_T sous-intervalles
             price_path *= exp(d(gen));
-            values[i][j] = price_path;
+            prices[j+1] = price_path;
         }
+        plt::plot(prices);   
     }
-    return values;
+    plt::title("Mouvement Brownien Géométrique");
+    plt::xlabel("Intervalle");
+    plt::ylabel("Prix");
+    plt::show(); 
 }
