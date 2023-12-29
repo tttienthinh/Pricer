@@ -1,4 +1,7 @@
 #include <iostream>
+#include <cmath>
+#include <random>
+#include <iostream>
 #include <vector>
 #include "src/matplotlibcpp.h"
 using namespace std;
