@@ -35,7 +35,7 @@ double MonteCarlo::calculate(bool is_call) {    random_device rd;
     return option_price;
 }
 
-vector<vector<double>> MonteCarlo::simulation(int nb_delta_T) {
+std::vector<std::vector<double>> MonteCarlo::simulation(int nb_delta_T) {
     random_device rd;
     mt19937 gen(rd());
     normal_distribution<> d((r - 0.5 * vol * vol) * T/nb_delta_T, vol * sqrt(T/nb_delta_T)); // Permet de générer des nombres aléatoires suivant une loi normale

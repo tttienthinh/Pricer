@@ -1,17 +1,40 @@
+#include <iostream>
+#include <vector>
 #include <cmath>
-#include <matplot/matplot.h>
+#include <random>
+#include "matplotlibcpp.h"
+
+namespace plt = matplotlibcpp;
 
 int main() {
-    using namespace matplot;
-    std::vector<double> x = linspace(0, 2 * pi);
-    std::vector<double> y = transform(x, [](auto x) { return sin(x); });
+    // Paramètres du mouvement brownien géométrique
+    double initialPrice = 100.0;
+    double drift = 0.05;
+    double volatility = 0.2;
+    int intervals = 100;
+    double dt = 1.0 / intervals;
 
-    plot(x, y, "-o");
-    hold(on);
-    plot(x, transform(y, [](auto y) { return -y; }), "--xr");
-    plot(x, transform(x, [](auto x) { return x / pi - 1.; }), "-:gs");
-    plot({1.0, 0.7, 0.4, 0.0, -0.4, -0.7, -1}, "k");
+    // Initialiser le générateur aléatoire avec une graine fixe pour la reproductibilité
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::normal_distribution<double> normalDistribution(0.0, 1.0);
 
-    show();
+    // Générer le mouvement brownien géométrique
+    std::vector<double> prices(intervals + 1);
+    prices[0] = initialPrice;
+
+    for (int i = 1; i <= intervals; ++i) {
+        double randomValue = normalDistribution(generator);
+        double increment = drift * dt + volatility * sqrt(dt) * randomValue;
+        prices[i] = prices[i - 1] * exp(increment);
+    }
+
+    // Tracer le mouvement brownien géométrique
+    plt::plot(prices);
+    plt::title("Mouvement Brownien Géométrique");
+    plt::xlabel("Intervalle");
+    plt::ylabel("Prix");
+    plt::show();
+
     return 0;
 }
