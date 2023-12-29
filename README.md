@@ -46,7 +46,9 @@ Dans le modèle de Black, Scholes et Merton, $$ dS_t = rS_tdt+\sigma S_tdW_t$$ a
 
 - payoff de l'option dans l'itération i de la simulation Monte Carlo $$C_{0,i} = \exp (-\int^{T}_{0}r_s ds) C_{T,i} = \exp (-rT) C_{T,i}$$ car r est constante.
 
-- Ainsi il suffit de calculer la moyenne $$ \hat{C_0} = \frac{1}{M}\sum^{M}_{i=1} C_{0,i}$$ pour approximer le prix de l'option (loi forte des grands nombres).
+- Ainsi il suffit de calculer la moyenne $$ \hat{C_0} = \frac{1}{M}\sum^{M}_{i=1} C_{0,i}$$ pour approximer le prix de l'option (loi forte des grands nombres).  
+
+![Simulation de Monte Carlo](Mouvement Brownien.png)
 
 
 ## Black Scholes [4]
@@ -64,10 +66,18 @@ Supposons que $r$ et $vol$ sont constants, alors nous pouvons obtenir à l'aide 
 Pour gérer un projet d'une telle ampleur, nous ne pouvions pas utiliser `gcc` ou `g++` pour compiler les fichiers un par un. Nous avons donc fait appel à CMake :  
 [5] *CMake is the de-facto standard for building C++ code, with over 2 million downloads a month. It’s a powerful, comprehensive solution for managing the software build process. Get everything you need to successfully leverage CMake by visiting our resources section.*
 
-## Pour compiler le code 
+## Exécuter le code 
+
+### Calculer le prix de l'option
 ```
 	g++ -o main.exe main.cpp src/MonteCarlo.cpp src/BlackScholes.cpp
-	g++ -o main_plot.exe main_plot.cpp src/MonteCarlo.cpp
+	./main.exe
+```
+
+### Simulation de Monte Carlo
+```
+    g++ mainplot.cpp -o mainplot src/MonteCarlo.cpp -I "C:\Program Files\Python312\include" -I "C:\users\thoma\appdata\roaming\python\python312\site-packages\numpy\core\include" -L  "C:\Program Files\Python312\libs" -lpython312
+
 ```
 
 ## Pour créer ce document
