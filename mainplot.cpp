@@ -19,7 +19,6 @@ int main(){
     random_device rd;
     mt19937 gen(rd());
     normal_distribution<> d((r - 0.5 * vol * vol) * T/nb_delta_T, vol * sqrt(T/nb_delta_T)); // Permet de générer des nombres aléatoires suivant une loi normale
-    vector<vector<double>> values(N, std::vector<double>(nb_delta_T));
 
     double sum_payoffs = 0.0;
     for (int i = 0; i < N; ++i) { // On fait N simulations

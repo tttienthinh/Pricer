@@ -17,7 +17,6 @@ slide-level: 1
 
 # La formule de de Black-Scholes 
 ## La formule
-### Block1
 Supposons que $r$ et $vol$ sont constants, alors nous pouvons obtenir à l'aide du lemme d'Îto le prix d'un call européen selon l'équation: 
  $$C_{0} = S_0 N(d_1) - K\exp (-rT)N(d_2)$$
  où $d_1 = \frac{\ln(\frac{S_0}{K}) + (r + \frac{vol^2}{2})T}{vol\sqrt{T}}$ et $d_2 = d_1 - vol\sqrt{T}$
@@ -28,11 +27,10 @@ Supposons que $r$ et $vol$ sont constants, alors nous pouvons obtenir à l'aide 
 
 
 ## Les Hypothèses  
-### Block1
-Soit un actif dont le prix est un processus stochastique $S = (St)_t$, les principaux hypothèses du modèle sont:
-  - $(St)_t$ suit un mouvement brownien géométrique d'écart-type $vol$
-  - pas d'opportunité d'arbitrage
-  - $(St)_t$ est un processus à temps continu 
+Soit un actif dont le prix est un processus stochastique $S = (St)_t$, les principales hypothèses du modèle sont:  
+  - $(St)_t$ suit un mouvement brownien géométrique d'écart-type $vol$  
+  - pas d'opportunité d'arbitrage  
+  - $(St)_t$ est un processus à temps continu   
 
 ## Structure de code
 Création de la classe BlackScholes qui calcule le prix d'une option européenne en fonction de : 
@@ -63,9 +61,41 @@ Notre code repose sur l'utilisation de classe (POO) permettant une grande modula
  - La classe permet de garder tous les paramètres de simulation
  - La fonction calculate permet d'effectuer les simulations  
 
-## Difficulés rencontrées
+
 ### Penser le code pour des options plus complexes
+$dS_t = (rdt + \sigma dW_t)S_t$ avec $dW_t \sim \mathcal{N}(0,dt)$  
+On obtient alors $S_{t+\Delta t} = S_t exp(dB_t)$ avec $dB_t \sim \mathcal{N}(rdt,\sigma\sqrt{\Delta t})$  
+
+## Un code modulable
+### mainplot.cpp
+```C++
+normal_distribution<> d(
+    (r - 0.5 * vol * vol) * T/nb_delta_T,
+    vol * sqrt(T/nb_delta_T)
+); // Génère des valeurs suivant une loi normale
+
+std::vector<double> prices(nb_delta_T+1);
+prices[0] = price_path;
+
+for (int j = 0; j < nb_delta_T; ++j) { 
+    // Divise [0, T] en nb_delta_T sous-intervalles
+    price_path *= exp(d(gen));
+    prices[j+1] = price_path;
+}
+```
+## Difficulés rencontrées
+### Difficultés 
+ - Unifier les strucutres de classe $BlackScholes$ et $MonteCarlo$
+ - Penser $MonteCarlo::calculate$ pour qu'il soit modulable  
+ - Travailler avec les générateurs de nombres aléatoires  
+
 
 ### Pistes d'amélioration
  - Utilisation de la méthode Quasi Monte-Carlo qui permettrait de gagner du temps  
+ - Les méthodes de réduction de la variance  
  - Implémenter des calculs en parallèle sur carte graphique  
+
+## Générer la présentation
+```
+pandoc -t beamer Presentation.md  -V theme:Warsaw -o Presentation.pdf
+```
