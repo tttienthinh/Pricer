@@ -1,0 +1,11 @@
+# ninja log v5
+1060	1172	1703773310264216406	Pricer	c7b302ead2c4feea
+9	1059	1703773310149770705	CMakeFiles/Pricer.dir/main.cpp.o	c4d8b46c168f0d46
+10	1544	1703773301829601743	CMakeFiles/Pricer.dir/Stock.cpp.o	c348fa6ecdd449d4
+11	728	1703773301009823275	CMakeFiles/Pricer.dir/BlackScholes.cpp.o	9b4cf5ed50b963c8
+11	1598	1703773301883380016	CMakeFiles/Pricer.dir/MonteCarlo.cpp.o	2a34aab40a56f4c3
+1	203	1703775316479373082	build.ninja	e13a3deb9039668f
+22	481	1703775382530768166	CMakeFiles/Pricer.dir/src/BlackScholes.cpp.o	9f107ee72e278d8c
+21	1357	1703775383406826125	CMakeFiles/Pricer.dir/src/MonteCarlo.cpp.o	c109b3faae5c035b
+20	1444	1703775383493315582	CMakeFiles/Pricer.dir/main.cpp.o	c4d8b46c168f0d46
+1445	1615	1703775383668822555	Pricer	1848fb8836efbb6c
