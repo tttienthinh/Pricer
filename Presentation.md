@@ -45,13 +45,21 @@ Utilisation de cette classe dans main.cpp
 
 # La méthode de Monte Carlo  
 ## Présentation de la méthode de Monte Carlo
-La méthode de Monte Carlo consiste en l'utilisation de la loi forte des grands nombres, si l'on connait la loi du processus stochastique $(St)_t$, alors nous pouvons simuler informatiquement plusieurs trajectoires de ce processus et obtenir le payoff de l'option européenne dans chaque de ces cas, alors en calculant la moyenne, on peut en déduire le prix. 
+La méthode de Monte Carlo utilide la loi forte des grands nombres, si l'on connait la loi du processus stochastique $(St)_t$, alors nous pouvons simuler informatiquement plusieurs trajectoires de ce processus et obtenir le payoff de l'option européenne dans chaque de ces cas, alors en calculant la moyenne, on peut en déduire le prix. 
 
+## Création d'un graphique en C++
+### idée
+Utiliser la librairie python matplotlib pour tracer les différentes trajectoires du processus.
+
+## Etapes
+Etapes:
+- 
 
 ## Création d'un graphique en C++
 ![Notre simulation de prix](Mouvement Brownien.png){ width=75% }
 
 ## Difficulés rencontrées
+coucou
 
 # Le pricing d'options complexes
 
@@ -64,7 +72,7 @@ Notre code repose sur l'utilisation de classe (POO) permettant une grande modula
 
 ### Penser le code pour des options plus complexes
 $dS_t = (rdt + \sigma dW_t)S_t$ avec $dW_t \sim \mathcal{N}(0,dt)$  
-On obtient alors $S_{t+\Delta t} = S_t exp(dB_t)$ avec $dB_t \sim \mathcal{N}(rdt,\sigma\sqrt{\Delta t})$  
+On obtient alors $S_{t+\Delta t} = S_t exp(dB_t)$ avec $dB_t \sim \mathcal{N}(rdt,\sigma^2\Delta t)$  
 
 ## Un code modulable
 ### mainplot.cpp

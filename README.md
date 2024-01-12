@@ -82,7 +82,7 @@ Beaucoup de difficultés ont été rencontré lors de la création du plot, nota
 ```
     g++ mainplot.cpp -o mainplot src/MonteCarlo.cpp 
     -I "C:\Program Files\Python312\include" 
-    -I "C:\users\thoma\appdata\roaming\python\python312\site-packages\numpy\core\include" 
+    -I "C:\Users\trant\AppData\Roaming\Python\Python312\site-packages\numpy\core\include" 
     -L  "C:\Program Files\Python312\libs" -lpython312
 ```
 
